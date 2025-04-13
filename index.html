@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday! 🎉</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ff6b6b;
+      --secondary: #ff8e8e;
+      --accent: #ffb3b3;
+      --text: #333;
+      --light: #fff9f9;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    /* Confetti Background */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background-color: var(--primary);
+      animation: fall linear infinite;
+      z-index: -1;
+    }
+    
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    /* Main Content */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      margin: 2rem 0;
+      position: relative;
+    }
+    
+    .cake {
+      font-size: 8rem;
+      margin: 1rem 0;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    
+    .cake:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Photo Gallery */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Message Section */
+    .message {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin: 2rem 0;
+      position: relative;
+    }
+    
+    .message::before {
+      content: "";
+      position: absolute;
+      top: -10px;
+      left: 20px;
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-bottom: 10px solid white;
+    }
+    
+    /* Interactive Elements */
+    .surprise-box {
+      background: linear-gradient(135deg, var(--secondary), var(--accent));
+      color: white;
+      padding: 1rem;
+      border-radius: 10px;
+      text-align: center;
+      margin: 2rem 0;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .surprise-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    
+    .hidden-content {
+      display: none;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 0 0 10px 10px;
+      margin-top: 1rem;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .cake {
+        font-size: 5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Confetti Background -->
+  <div id="confetti-container"></div>
+  
+  <!-- Header -->
+  <header>
+    <h1>Happy Birthday! <span id="name">Promax</span> 🎉</h1>
+    <p>Today is your special day!</p>
+  </header>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="cake" onclick="blowCandle()">🎂</div>
+      <p>Click the cake to blow out the candles!</p>
+      <audio id="birthdaySong" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop></audio>
+    </section>
+    
+    <!-- Photo Gallery -->
+    <section>
+      <h2><i class="fas fa-camera"></i> Memory Lane</h2>
+      <div class="gallery">
+        <img src="https://source.unsplash.com/random/300x300/?birthday" alt="Birthday memory">
+        <img src="https://source.unsplash.com/random/300x300/?celebration" alt="Celebration">
+        <img src="https://source.unsplash.com/random/300x300/?smile" alt="Smile">
+        <img src="https://source.unsplash.com/random/300x300/?happy" alt="Happy">
+        <img src="https://source.unsplash.com/random/300x300/?party" alt="Party">
+        <img src="https://source.unsplash.com/random/300x300/?friends" alt="Friends">
+      </div>
+    </section>
+    
+    <!-- Personal Message -->
+    <section class="message">
+      <h2><i class="fas fa-envelope"></i> A Special Message</h2>
+      <p>Dear <span id="name2">Promax</span>,</p>
+      <p>On your special day, I want you to know how amazing you are! You light up every room you enter and bring joy to everyone around you.</p>
+      <p>Wishing you a year filled with happiness, success, and all the things you love most!</p>
+      <p>With love,</p>
+      <p>Your Secret Admirer ❤️</p>
+    </section>
+    
+    <!-- Interactive Surprise -->
+    <div class="surprise-box" onclick="toggleSurprise()">
+      <h3><i class="fas fa-gift"></i> Click for a Special Surprise!</h3>
+      <div class="hidden-content" id="surprise">
+        <p>You're the most wonderful person I know! Here's to many more years of happiness together!</p>
+        <img src="https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif" alt="Celebration" style="width: 100%; border-radius: 8px; margin-top: 1rem;">
+      </div>
+    </div>
+    
+    <!-- Countdown -->
+    <section style="text-align: center; margin: 2rem 0;">
+      <h2><i class="fas fa-clock"></i> Birthday Countdown</h2>
+      <div id="countdown" style="font-size: 1.5rem; font-weight: bold;"></div>
+    </section>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>Made with ❤️ for <span id="name3">Promax</span>'s special day</p>
+    <p>© <span id="year"></span> All rights reserved</p>
+  </footer>
+  
+  <script>
+    // Create confetti
+    function createConfetti() {
+      const colors = ['#ff6b6b', '#ff8e8e', '#ffb3b3', '#ffd3d3', '#fff9f9'];
+      const container = document.getElementById('confetti-container');
+      
+      for (let i = 0; i < 100; i++) {
+        const confetti = document.createElement('div');
+        confetti.className = 'confetti';
+        confetti.style.left = Math.random() * 100 + 'vw';
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+        confetti.style.animationDelay = Math.random() * 5 + 's';
+        confetti.style.width = Math.random() * 10 + 5 + 'px';
+        confetti.style.height = Math.random() * 10 + 5 + 'px';
+        container.appendChild(confetti);
+      }
+    }
+    
+    // Blow out candle
+    function blowCandle() {
+      const cake = document.querySelector('.cake');
+      const audio = document.getElementById('birthdaySong');
+      
+      cake.textContent = '🎂';
+      audio.play();
+      
+      // Create floating hearts
+      for (let i = 0; i < 10; i++) {
+        const heart = document.createElement('div');
+        heart.innerHTML = '❤️';
+        heart.style.position = 'absolute';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.top = '50vh';
+        heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+        heart.style.animation = `float-up ${Math.random() * 2 + 1}s ease-in forwards`;
+        document.body.appendChild(heart);
+        
+        // Remove after animation
+        setTimeout(() => {
+          heart.remove();
+        }, 1000);
+      }
+    }
+    
+    // Toggle surprise
+    function toggleSurprise() {
+      const surprise = document.getElementById('surprise');
+      surprise.style.display = surprise.style.display === 'block' ? 'none' : 'block';
+    }
+    
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Countdown to next birthday (example - set your own date)
+    function updateCountdown() {
+      const now = new Date();
+      const nextBirthday = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+      
+      if (now > nextBirthday) {
+        nextBirthday.setFullYear(nextBirthday.getFullYear() + 1);
+      }
+      
+      const diff = nextBirthday - now;
+      
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById('countdown').innerHTML = `
+        ${days}d ${hours}h ${minutes}m ${seconds}s
+      `;
+    }
+    
+    // Initialize
+    window.onload = function() {
+      createConfetti();
+      setInterval(updateCountdown, 1000);
+      
+      // Personalize name (you can change this)
+      const name = 'Promax';
+      document.querySelectorAll('#name, #name2, #name3').forEach(el => {
+        el.textContent = name;
+      });
+    };
+    
+    // Add floating animation
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes float-up {
+        to {
+          transform: translateY(-100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
